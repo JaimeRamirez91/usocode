@@ -1,0 +1,64 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head lang="es-sv">
+	<meta charset="UTF-8">
+	<title>Guias</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/normalize.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/estilo.css' %}">
+</head>
+<body>
+	<nav id="menu" class="menu">
+		<h3>USOcode++</h3>
+		<div id="logueo">
+			{% if user.is_authenticated %}
+			    <form action="logout/" method="POST">
+		    		{% csrf_token %}
+		    		<span>Bienvenido:  {{user.username}} &nbsp &nbsp &nbsp</span>
+		    		<input type="hidden" name="salir" value='1' >
+		    		<input type="submit" value="Salir">
+		    	</form>
+		    {% else %}
+		    	<form action="" method="POST">
+		    		{% csrf_token %}
+		    		<input type="text" name="username"><input type="password" name="pass">
+		    		<input type="submit" value="Entrar">
+		    	</form>
+		    {% endif %}
+		</div>
+	</nav>
+	<header>
+		<h1>USOcode++</h1>
+		<h2></h2>
+		{% if user.is_staff and user.is_authenticated%}
+			<h3><a href="/admincurso/"> Administrar Curso </a></h3>
+		{% endif %}
+		{% if not user.is_staff and user.is_authenticated %}
+			<h3> Continuar Guia </h3>
+			
+			{% for lista in existe%}
+				<h2><a href="/guias/prg/{{curso}}/{{forloop.counter}}/">{{lista}}{{forloop.counter}}</a></h2>
+			{%endfor%}
+		{% endif %}
+	</header>
+	
+		<article>
+			<h2>Indicaciones</h2>
+		</article>
+		<article>
+			<h2>Demo</h2>
+		</article>
+	
+	<footer>
+
+        TESIS, USOCODE 2015.
+		
+	</footer>
+	
+
+	<script type="text/javascript" src="{% static 'js/modernizr.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,131 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head lang="es-sv">
+	<meta charset="UTF-8">
+	<title>Guias</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/normalize.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/estilo.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/adminguias.css' %}">
+
+</head>
+<body>
+	<nav id="menu" class="menu">
+		<h3>USOcode++</h3>
+		<div id="logueo">
+			
+		    <form action="/logout/" method="POST">
+	    		{% csrf_token %}
+	    		<span>Bienvenido: {{user.username}} &nbsp &nbsp &nbsp</span>
+	    		<input type="hidden" name="salir" value='1' >
+	    		<input type="submit" value="Salir">
+	    	</form>
+		    
+		</div>
+	</nav>
+	
+	<article>
+		<h2>Administrar Guias</h2>
+		<div id="cursos">
+			{% for guias in guia %}
+			<div class="guia{{ guias.id}}">
+				<a href="/editorguias/{{ guias.Numero_Guia}}/{{guias.Curso_id}}"><h3>{{ guias.Tema_Guia}}</h3></a>
+				<p>{{ guias.Descripcion_guia}}</p>
+				<span>{{ guias.Numero_Guia}}</span>
+				<span class="edita" name="{{ guias.id}}">Editar</span>
+				<span class="edita" name="{{ guias.id}}">Eliminar</span>
+			</div>
+			{% endfor %}
+		
+		</div>
+		<div id="formulario2">
+			<span>
+				<form action="{% url 'app.views.guardarGuia' %}" method="POST">
+					{% csrf_token %}
+					<input type="hidden" name="idcurso" value="{{curso}}">
+					<input type="hidden" name="id" value="">
+					<input type="hidden" name="op" value="">
+				</form>
+			</span>
+		</div>
+		<div id="formulario">
+			<span>
+				<form action="{% url 'app.views.guardarGuia' %}" method="POST">
+					{% csrf_token %}
+					<input type="hidden" name="numguia" value=1><br>
+					<label>Tema Guia</label><input type="text" name="tema" required><br>
+					<label>Descripcion</label><textarea name="descripcion" required></textarea><br><br>
+					<input type="hidden" name="idcurso" value="{{curso}}">
+					<input type="hidden" name="id" value="">
+					<input type="hidden" name="op" value="">
+					<input type="submit" value="Guardar" id="Guardar">
+					<input type="reset" value="Cancelar" id="cancelar">
+				</form>
+			</span>
+		</div>
+		<div id="agregar">
+			<span>Agregar Guia</span>
+		</div>
+		
+	</article>
+	<article>
+		<h2>Administrar Inscritos</h2>
+		<div>
+			<input type="number" value="1" id="cantAgregar">
+			<input type="button" value="Agregar" id="agregarIns">
+			<input type="button" value="Modificar" id="modificarIns">
+			<input type="button" value="Guardar" id="guardarIns"><br><br>
+			<table border=1 id="tablaInscritos">
+				<tr>
+					<th> # </th>
+					<th>Usuario</th>
+					<th>Nombre</th>
+					<th>Apellido</th>
+					<th>Correo</th>
+					<th>Revisar Guias</th>
+					<th>Eliminar</th>
+				</tr>
+			{% for inscrito in inscritos %}
+				<tr>
+					<td class="correlativo">{{forloop.counter}}</td>
+					<td contenteditable=false class="edicion usuario">{{ inscrito.username}}</td>
+					<td contenteditable=false class="edicion nombre">{{ inscrito.first_name}}</td>
+					<td contenteditable=false class="edicion apellido">{{ inscrito.last_name}}</td>
+					<td contenteditable=false class="edicion email">{{ inscrito.email}}</td>
+					<td>
+						<span class="edita" value="{{inscrito.id}}" id="revisarGuia"></span>
+					</td>
+					<td>
+						<span class="eliminarIns" id="{{inscrito.id}}">Eliminar</span>
+					</td>
+				</tr>
+			{% endfor %}
+			</table>
+
+			<table id="tablaInscritosCopia"></table>
+		</div>
+		<div>
+
+			<form method="post" action="{% url 'app.views.guardaInscritos' %}" enctype="multipart/form-data">
+				{% csrf_token %}
+				<input type="hidden" id="idcurso" name="idcurso" value="{{curso}}">
+			
+				<!-- <input name="archivo" type="file" />
+				<input type="submit"> -->
+			</form>
+		</div>
+	</article>
+	
+	<footer>
+		TESIS, USOCODE 2015.
+		
+	</footer>
+	
+
+	<script type="text/javascript" src="{% static 'js/modernizr.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/jquery.cookie.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/adminguias.js' %}"></script>
+</body>
+</html>

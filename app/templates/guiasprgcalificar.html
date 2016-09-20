@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head lang="es-sv">
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/normalize.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/guiasprg.css' %}">
+</head>
+<body>
+	<nav>
+		<h3>Guia #{{nguia}} </h3>
+		<input type="hidden" id="guiaid" value="{{guiaid}}">
+		<h3>USOcode</h3>
+		<div id="logueo">
+			<form action="/logout/" method="POST">
+	    		{% csrf_token %}
+	    		<input type="hidden" name="salir" value='1' >
+	    		<input type="submit" value="Salir">
+	    		<a href="/adminguias/{{curso}}"> Ir atras </a>
+	    	</form>
+		</div>
+	</nav>
+	<section>
+		<input type="hidden" id="idalumno" value="{{idalumno}}">
+		<div id="instrucciones">
+			<div id="pasos">
+				<span id="nombreGuia"></span> 
+				<span id="avance"></span>
+				<span id="estado">&nbsp</span><br>
+				<span id="ant">&lt</span>
+				<span id="guardar">Guardar y enviar</span>
+				<span id="next">&gt</span>
+			</div>
+			<div id="indicaciones">{{ guia }}</div>
+		</div>
+		<div id="ide">
+			<div id="encabezado">
+				<div id="pestanas">
+					&nbsp
+				</div>
+				<div id="herramientas">
+					<div id="play">
+
+					</div>
+				</div>
+			</div>
+			<div id="editor">
+				<div id="e_num">
+					1 <br>
+				</div>
+				<div id="editar">
+					<span id="mostrar"></span>
+					<span id="mostrar2"></span>
+					{% csrf_token %}
+					<textarea id="texto"></textarea>
+				</div>
+			</div>
+			<div id="logs"></div>
+		</div>
+		<div id="pantalla"></div>
+
+		<div id="v_consola">
+			
+				<span id="cerrar">x</span>
+				<div id = "consola"></div>
+			
+		</div>
+	</section>
+
+	<script type="text/javascript" src="{% static 'js/modernizr.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/jquery.cookie.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/guias.js' %}"></script>
+</body>
+</html>

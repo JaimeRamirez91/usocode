@@ -1,0 +1,29 @@
+- Proyecto creado
+- Aplicacion principal "app"
+- Modelo de la base de datos para la aplicacion
+- Configurado el superusuario.
+- configurado los mantenimientos de las tablas para superusuario.
+- creada y agregada a los dir las plantillas (templates)
+- usando la plantilla index.html para la vista principal
+- agregando la carpeta estatica para los elementos css y js
+- configurando la ruta de la carpeta estatica
+- usando el archivo de estilo en el index desde los archivos estaticos
+- agregado a index los estilos y los js para ser usados
+- agregada nueva vista para las guias
+- configurada la url para la vista de las guias tomando el numero
+- agregado estilo a la IDE
+- agregado funcionalidad de visible y cerrar consola
+- agregado estilo del editor de texto
+- expresiones regulares para coloreo de palabra reservada int
+- expresin regular para el salto de linea y mostrar la linea.
+- colores de palabras reservadas asignadas
+- expresiones regulares para directivas
+- comunicacion jquery json por metodo post establecido
+- agregado un modulo de prueba que devolvera respuesta compilador
+- modulo de prueba devuelve json con el codigo por lineas
+- arreglado metodo post y multilinea
+- agregado retorno objeo json ya permite comillas dobles simples y anidadas
+- agregado la funcionalidad eval que evalua el codigo javascript desde un string
+- integracion con el traductor funcionando 100%
+- cargar las indicaciones por el numero de guia
+- 

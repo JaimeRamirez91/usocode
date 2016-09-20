@@ -1,0 +1,326 @@
+/*! HTML5 Boilerplate v4.3.0 | MIT License | http://h5bp.com/ */
+@font-face
+{
+   font-family: "Aldhabi";
+   src: url("font/caslon.otf");
+}
+html,
+button,
+input,
+select,
+textarea {
+    color: #222;
+
+}
+
+html {
+    font-size: 1em;
+    line-height: 1.4;
+    height: 100%;
+}
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+audio,
+canvas,
+img,
+video {
+    vertical-align: middle;
+}
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.browsehappy {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+
+/* ===== Initializr Styles ==================================================
+   Author: Jonathan Verrecchia - verekia.com/initializr/responsive-template
+   ========================================================================== */
+
+body {
+    font: 16px/26px Arial;
+    background-image: url('background.jpg');
+    background-attachment: fixed;
+    background-size: 100%;
+    background-position: center;
+    height: 100%;
+
+}
+
+.wrapper {
+    width: 90%;
+    margin: 0 5%;
+}
+
+/* ===================
+    ALL: Theme
+   =================== */
+.fixed{
+    position:fixed;
+    top:0;
+}
+
+header,section{
+    height: 100%;
+}
+nav input{
+    margin-right: 1%; 
+    border:0px;
+    border-radius: 5px;
+    height: 30px;
+}
+nav input[type="text"]{
+    color:gray;
+}
+
+nav input[type="submit"]{
+    color:white;
+    background-color: rgba(65,150,65,1);
+}
+article{
+    min-height: 100%;
+    
+    margin: 0;
+    padding: 20;
+    border: 0px;
+}
+
+article:nth-child(odd){
+    background-color: rgba(200,200,200,0.7);
+}
+article:nth-child(even){
+    background-color: rgba(100,100,100,0.7);
+}
+article h2{
+
+}
+footer{
+    border: black 5px;
+}
+
+
+/* ==========================================================================
+   Media Queries
+   ========================================================================== */
+
+@media only screen and (min-width: 480px) {
+
+/* ====================
+    INTERMEDIATE: Menu
+   ==================== */
+    
+/* ========================
+    INTERMEDIATE: IE Fixes
+   ======================== */
+
+    .oldie nav li {
+        margin: 0 0.7%;
+    }
+    nav{
+        position: fixed;
+        top:0;
+        width: 100%;
+        color:silver;
+        padding: 0px 5%;
+        background: -webkit-linear-gradient(rgba(3,3,3,0),rgba(1,1,1,0)); /* For Safari 5.1 to 6.0 */
+        background: -o-linear-gradient(rgba(3,3,3,0),rgba(1,1,1,0)); /* For Opera 11.1 to 12.0 */
+        background: -moz-linear-gradient(rgba(100,100,100,1),rgba(20,20,20,1)); /* For Firefox 3.6 to 15 */
+        background: linear-gradient(rgba(100,100,100,1),rgba(20,20,20,1)); /* Standard syntax */
+    }
+    nav h3, nav div{
+        display: inline-block;
+        width: 45%;
+    }
+    nav div{
+        float: right;
+        padding: 1% 2%;
+    }
+    
+}
+
+@media only screen and (min-width: 768px) {
+    
+/* ====================
+    WIDE: CSS3 Effects
+   ==================== */
+
+
+/* ============
+    WIDE: Menu
+   ============ */
+
+    
+/* ============
+    WIDE: Main
+   ============ */
+
+ 
+}
+
+@media only screen and (min-width: 1140px) {
+
+/* ===============
+    Maximal Width
+   =============== */
+
+    
+}
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+.ir {
+    background-color: transparent;
+    border: 0;
+    overflow: hidden;
+    *text-indent: -9999px;
+}
+
+.ir:before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 150%;
+}
+
+.hidden {
+    display: none !important;
+    visibility: hidden;
+}
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
+.invisible {
+    visibility: hidden;
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+/* ==========================================================================
+   Print styles
+   ========================================================================== */
+
+@media print {
+    * {
+        background: transparent !important;
+        color: #000 !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+
+    .ir a:after,
+    a[href^="javascript:"]:after,
+    a[href^="#"]:after {
+        content: "";
+    }
+
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    thead {
+        display: table-header-group;
+    }
+
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+
+    img {
+        max-width: 100% !important;
+    }
+
+    @page {
+        margin: 0.5cm;
+    }
+
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+}

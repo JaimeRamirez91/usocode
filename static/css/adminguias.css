@@ -1,0 +1,112 @@
+article{
+	min-height: auto;
+	height: auto;
+}
+#formulario{
+	display: none;
+	background-color: rgba(170,170,170,0.7);
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+
+}
+#formulario2{
+	display: none;
+}
+#formulario span{
+	display: inline-block;
+	margin: 15% 30%;
+	padding: 5%;
+	background-color: rgba(10,10,10,0.7);
+	color:white;
+	display: table;
+}
+
+#formulario label{
+	display: table-cell;
+}
+#formulario input, #formulario textarea{
+	display: table-cell;
+	vertical-align: middle;
+	border-radius: 10px;
+	padding-left: 5px;
+}
+
+#agregar{
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding: 20px;
+	text-align: center;
+	text-shadow:1px 1px gray;	
+}
+#agregar span{
+
+}
+#agregar span:hover{
+
+}
+
+
+#cursos div, #agregar{
+	background-color: rgba(200,200,200,0.8);
+	border-radius: 10px 10px 5px 5px;
+	padding-bottom: 10px;
+	box-shadow: 2px 2px 10px #fff
+}
+#cursos div h3{
+	background-color: rgba(110,110,130,0.7);
+	border-radius: 10px 10px 5px 5px;
+}
+#cursos div > a{
+	text-decoration: none;
+	color:black;
+}
+#cursos .edita{
+	padding: 5px;
+	border-radius: 10px;
+	border: solid 2px white;
+	background-color: rgba(110,110,150,0.7);
+	float: right;
+	width: 70px;
+	text-align: center;
+	text-shadow:1px 1px gray;
+}
+#cursos div:hover, #agregar:hover{
+	background-color: rgba(255,255,255,0.8);
+	cursor: pointer;
+}
+#cursos div h3, #cursos div p, #cursos div span{
+	padding: 10px;
+}
+
+
+#cantAgregar{
+	width: 40px;
+}
+
+table tr:nth-child(even){
+	background-color: Lavender ;
+	border: 2px black solid;
+}
+table tr:nth-child(odd){
+	background-color: LightSteelBlue;
+	border: 2px black solid;
+}
+table tr th{
+	background-color: rgba(110,110,130,0.7);
+	border: 2px black solid
+}
+table tr:hover{
+	background-color: AliceBlue;
+	cursor: auto;
+}
+
+table tr:first-child:hover{
+	background-color:inherit;
+	cursor: auto;
+}
+table tr td,th{
+	padding: 5px 10px;
+}

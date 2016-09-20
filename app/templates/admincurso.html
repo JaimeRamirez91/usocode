@@ -1,0 +1,84 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head lang="es-sv">
+	<meta charset="UTF-8">
+	<title>Guias</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/normalize.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/estilo.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/admincurso.css' %}">
+</head>
+<body>
+	<nav id="menu" class="menu">
+		<h3>USOcode++</h3>
+		<div id="logueo">
+			
+		    <form action="/logout/" method="POST">
+	    		{% csrf_token %}
+	    		<span>Bienvenido: {{user.username}} &nbsp &nbsp &nbsp</span>
+	    		<input type="hidden" name="salir" value='1' >
+	    		<input type="submit" value="Salir">
+	    	</form>
+		    
+		</div>
+	</nav>
+	
+	<article>
+		<h2>Indicaciones</h2>
+		<div id="cursos">
+			{% for cursos in curso %}
+			<div class="curso{{ cursos.id}}">
+				<a href="/adminguias/{{ cursos.id}}"><h3>{{ cursos.Nombre_Curso}}</h3></a>
+				<p>{{ cursos.Descripcion_Curso}}</p>
+				<span>{{ cursos.Ciclo}}</span>
+				<span class="edita" id="editar" name="{{ cursos.id}}">Editar</span>
+				<span class="edita" id="eliminar" name="{{ cursos.id}}">Eliminar</span>
+			</div>
+			{% endfor %}
+		
+		</div>
+		<div id="formulario2">
+			<span>
+				<form action="{% url 'app.views.guardarCurso' %}" method="POST">
+					{% csrf_token %}
+					<input type="hidden" name="id" value="">
+					<input type="hidden" name="op" value="">
+				</form>
+			</span>
+		</div>
+		<div id="formulario">
+			<span>
+				<form action="{% url 'app.views.guardarCurso' %}" method="POST">
+					{% csrf_token %}
+					<label>Ciclo</label><input type="number" name="ciclo" required><br>
+					<label>Nombre Curso</label><input type="text" name="nombre" required><br>
+					<label>Descripcion</label><textarea name="descripcion" required></textarea><br><br>
+					<input type="hidden" name="iduser" value="{{user.id}}">
+					<input type="hidden" name="id" value="">
+					<input type="hidden" name="op" value="">
+					<input type="submit" value="Guardar" id="Guardar">
+					<input type="reset" value="Cancelar" id="cancelar">
+				</form>
+			</span>
+		</div>
+		<div id="agregar">
+			<span>Agregar un Curso</span>
+		</div>
+	</article>
+	<article>
+		<h2>Demo</h2>
+	</article>
+	
+	<footer>
+		
+		TESIS, USOCODE 2015.
+	</footer>
+	
+
+	<script type="text/javascript" src="{% static 'js/modernizr.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/jquery.cookie.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/admincurso.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head lang="es-sv">
+	<meta charset="UTF-8">
+	<title>Editor Guias</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/normalize.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/jquery-te-1.4.0.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/estilo.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/editorguias.css' %}">
+</head>
+<body>
+	<nav id="menu" class="menu">
+		<h3>USOcode++</h3>
+		<div id="logueo">
+			
+		    <form action="/logout/" method="POST">
+	    		{% csrf_token %}
+	    		<span>Bienvenido: {{user.username}} &nbsp &nbsp &nbsp</span>
+	    		<input type="hidden" name="salir" value='1' >
+	    		<input type="submit" value="Salir">
+	    	</form>
+		    
+		</div>
+	</nav>
+	
+	<section>
+		<h2>Editar Guia</h2>
+		<span>Ejercicios</span>
+		<div id="navGuias">
+			<span>&lt</span>
+			<span>Ejercicio #1</span>
+			<span>&gt</span>
+			<span>+</span>
+			<span>-</span>
+			<div id="listaGuias"><!-- proximamente --></div> 
+		</div>
+		<div id="editor">
+			<h3>Titulo Ejercicio</h3>
+			<input id="tituloejer" type="text" placeholder="titulo del ejercicio">
+			<h3>Indicaciones</h3>
+			<div id="indicaciones">
+				<textarea name="textarea" class="jqte-test"><b>Contenido editable <u><span style="color:rgb(0, 148, 133);">TEXTA</span></u></b></textarea>
+			</div>
+			<h3>Procedimientos</h3>
+			<div id="procedimientos">
+				<input name="input" type="text" value="<b>Contenido editable <u><span style=&quot;color:rgb(0, 148, 133);&quot;>INPUT</span></u></b>" class="jqte-test">
+
+			</div>
+		</div>
+		<div id="mostrar">M O S T R A R</div>
+		<div id="vistaPrev">
+			<div id="instrucciones">
+				<div id="pasos"><span id="nombreGuia"></span> <span id="avance"></span><br><span id="guardar">Guardar Guia</span></div>
+				<input type="hidden" id="numguia" value="{{numguia}}">
+				<input type="hidden" id="curso" value="{{curso}}">
+				<div class="indicaciones">
+					{{guia}}
+					
+				</div>
+			</div>
+		</div>
+		<div id='clear'></div>
+	</section>
+
+
+	<footer>
+		
+		
+	</footer>
+	
+
+	<script type="text/javascript" src="{% static 'js/modernizr.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/jquery-te-1.4.0.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/jquery.cookie.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/editorguias.js' %}"></script>
+	<script>
+		$('.jqte-test').jqte();
+		
+		// settings of status
+		var jqteStatus = true;
+		$(".status").click(function()
+		{
+			jqteStatus = jqteStatus ? false : true;
+			$('.jqte-test').jqte({"status" : jqteStatus})
+		});
+	</script>
+</body>
+</html>
